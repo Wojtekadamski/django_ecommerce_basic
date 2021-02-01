@@ -11,6 +11,10 @@ class Customer(models.Model):
 	def __str__(self):
 		return self.name
 
+class Review(models.Model):
+	rating = models.FloatField()
+	descriprion = models.CharField(max_length=256, null=True)
+	customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True)
 
 class Product(models.Model):
 	name = models.CharField(max_length=200)
